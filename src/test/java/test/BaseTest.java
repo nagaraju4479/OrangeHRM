@@ -3,19 +3,40 @@ package test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import driverFactory.*;
+import genericMethods.Wait;
+import pages.ExtentReport;
 
 public class BaseTest {
 	
 	protected WebDriver driver;
 	protected Properties  properties;
 	private String filePath = "./src/test/resources/config.properties";
+	static ExtentSparkReporter extentSparkReporter;
+	static ExtentReports extentReport;
+	
+	@BeforeClass
+	public void extentReportSetup()
+	{
+		extentSparkReporter = new ExtentSparkReporter("extentReport.html");
+		extentSparkReporter.config().setDocumentTitle("Automation Report");
+		extentSparkReporter.config().setReportName("Functional Testing");
+		
+		extentReport = new ExtentReports();
+		extentReport.attachReporter(extentSparkReporter);
+	}
 	
 	@BeforeMethod
 	public void startDriver() throws FileNotFoundException, InterruptedException
@@ -32,7 +53,8 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 		driver.get(properties.getProperty("baseUrl"));
-		Thread.sleep(10000);
+		Wait.waitForPageLoad(driver);
+		
 		
 	}
 	
@@ -40,6 +62,12 @@ public class BaseTest {
 	public void quitDriver()
 	{
 		//driver.quit();
+	}
+	
+	@AfterClass
+	public void flushExtendReports()
+	{
+		extentReport.flush();
 	}
 
 }

@@ -5,9 +5,11 @@
     <classes>
       <class name="test.LoginTest">
         <methods>
+          <include name="checkBoxTest"/>
           <include name="quitDriver"/>
+          <include name="extentReportSetup"/>
           <include name="startDriver"/>
-          <include name="loginTest"/>
+          <include name="flushExtendReports"/>
         </methods>
       </class> <!-- test.LoginTest -->
     </classes>
