@@ -1,10 +1,14 @@
 package genericMethods;
 
+import java.util.List;
+
 import org.apache.logging.log4j.core.Logger;
 import org.apache.logging.log4j.core.appender.rolling.action.IfAccumulatedFileCount;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.bidi.BiDiSessionStatus;
+import org.openqa.selenium.support.ui.Select;
 
 public class Verify {
 
@@ -118,6 +122,27 @@ public class Verify {
 		return false;
 	}
 	
+	
+	//Dropdowns
+	
+	public static Boolean  verifyElementPresent(WebDriver driver , By locator , String sText) {
+		
+		
+		Select select = new Select(Elements.getWebElement(driver, locator));
+		List<WebElement> list = select.getOptions();
+		
+		for (WebElement webElement : list) {
+			
+			if(webElement.getText().equals(sText))
+			{
+				return true;
+			}			
+			
+		}
+		Messages.errorMsg = sText+"Is not present in "+locator;
+		System.out.println(Messages.errorMsg);
+		return false;
+	}
 	
 	
 

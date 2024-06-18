@@ -2,10 +2,13 @@ package genericMethods;
 
 import java.time.Duration;
 import java.util.DoubleSummaryStatistics;
+import java.util.List;
 
+import org.apache.logging.log4j.core.impl.ReusableLogEventFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class Elements {
@@ -88,4 +91,59 @@ public class Elements {
 		
 		return false;
 	}
+	
+	public static WebElement getWebElement(WebDriver driver, By locator)
+	{
+		bStatus = Verify.verifyElementVisible(driver, locator);
+		
+		if(bStatus)
+		{
+			WebElement element =  driver.findElement(locator);
+			return element;
+			
+		}
+		Messages.errorMsg = locator+" is not visible and not used";
+		System.out.println(Messages.errorMsg);
+		return null;
+		
+			
+	}
+	
+	public static List<WebElement> getWebElements(WebDriver driver , By locator) {
+		
+		bStatus = Verify.verifyElementVisible(driver, locator);
+		if(bStatus)
+		{
+			List<WebElement>  listElements= driver.findElements(locator);
+			return listElements;
+		}
+		Messages.errorMsg = locator+" is not visible and not used";
+		System.out.println(Messages.errorMsg);	
+		
+		return null;
+		
+	}
+	
+	public static Boolean selectDropdownByVisibleText(WebDriver driver, By locator , String sText)
+	{
+		bStatus = Wait.waitForElementPresent(driver, locator);
+		if(bStatus)
+		{
+		try {
+			
+			Select dropdown = new Select(Elements.getWebElement(driver, locator));
+			dropdown.selectByVisibleText(sText);
+			return true;
+			
+		} catch (Exception e) {
+			Messages.errorMsg = "Exception occured while selecting the text :"+e.getMessage();
+			System.out.println(Messages.errorMsg);
+		}
+		
+		}
+		return false;
+		
+		
+	}
+	
 }

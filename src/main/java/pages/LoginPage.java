@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import genericMethods.Constants;
 import genericMethods.Elements;
 import genericMethods.Verify;
 import genericMethods.Wait;
@@ -31,6 +32,7 @@ public class LoginPage extends BasePage{
 	By loginBtn = By.cssSelector("button[type='submit']");
 	
 	By checkBox = By.id("englishchbx");
+	By dropdownText = By.id("course");
 	
 	
 	//Methods
@@ -55,6 +57,12 @@ public class LoginPage extends BasePage{
 		Elements.uncheckCheckbox(driver, checkBox);
 		return this;
 		
+	}
+	
+	public LoginPage selectDropdownValueByText()
+	{
+		Elements.selectDropdownByVisibleText(driver, dropdownText, Constants.SEARCHTEXT);
+		return this;
 	}
 
 }

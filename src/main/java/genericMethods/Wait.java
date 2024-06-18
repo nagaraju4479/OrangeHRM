@@ -89,5 +89,26 @@ public class Wait {
         wait.until(pageLoadCondition);
 	}
 	
+	public static Boolean waitForElementPresent(WebDriver driver,By locator)
+	{
+		
+		new WebDriverWait(driver, Constants.maxWaitTime).until(ExpectedConditions.visibilityOfElementLocated(locator));
+		bStatus = Verify.verifyElementPresent(driver, locator, Constants.SEARCHTEXT);
+		
+		if(bStatus)
+		{
+			try {
+				return true;
+				
+			} catch (Exception e) {
+				Messages.errorMsg = e.getMessage();
+				System.out.println("Element not present due to :"+Messages.errorMsg);
+			}
+		}
+		
+		return false;
+		
+	}
+	
 	
 }

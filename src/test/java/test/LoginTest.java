@@ -22,11 +22,7 @@ public class LoginTest extends BaseTest{
 	public void checkBoxTest() throws InterruptedException
 	{
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.checkboxCheck(Constants.waitTime);
-		
-	Thread.sleep(5000);
-	loginPage.uncheckCheckBox(Constants.waitTime);
-		
+		loginPage.selectDropdownValueByText();
 	
 	}
 	
