@@ -1,13 +1,18 @@
 package genericMethods;
 
+import java.security.KeyStore.PrivateKeyEntry;
 import java.util.List;
 
 import org.apache.logging.log4j.core.Logger;
 import org.apache.logging.log4j.core.appender.rolling.action.IfAccumulatedFileCount;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.bidi.BiDiSessionStatus;
+import org.openqa.selenium.chrome.AddHasCasting;
 import org.openqa.selenium.support.ui.Select;
 
 public class Verify {
@@ -17,133 +22,87 @@ public class Verify {
 	private static boolean bStatus;
 
 	public static boolean verifyElementVisible(WebDriver driver, By locator) {
-		bStatus = driver.findElement(locator).isDisplayed();
-		
-		if(bStatus)
-		{
-			return true;
-		}
-		
-		Messages.errorMsg = locator+" Not visible";
-		System.out.println(Messages.errorMsg);
-		return false;
-		
-		
-		
-	}
 
-	public static boolean verifyTextVisible(WebDriver driver, String sText) {
-		bStatus = driver.getPageSource().contains(sText);
-		if (bStatus) {
+		try {
+			WebElement element = driver.findElement(locator);
+			return element.isDisplayed();
 
-			try {
-				return true;
-			} catch (Exception e) {
-				Messages.errorMsg = e.getMessage();
-				System.out.println(sText + " is not available in page source" + Messages.errorMsg);
-
-			}
+		} catch (NoSuchElementException e) {
+			System.out.println("Locator " + locator + " is not visible");
 			return false;
-		}
-		return false;
-	}
-
-	public static boolean verifyTextVisible(WebDriver driver, By locator, String sText) {
-
-		bStatus = verifyElementVisible(driver, locator);
-		if (!bStatus) {
-			System.out.println("Element " + locator + " is not found");
-			return false;
-		}
-
-		bStatus = driver.findElement(locator).getText().contains(sText);
-		if (bStatus) {
-			try {
-
-				return true;
-
-			} catch (Exception e) {
-
-				Messages.errorMsg = e.getMessage();
-				System.out.println(locator + " Text is not equals to: " + sText);
-				return false;
-			}
 
 		}
-		return false;
 
 	}
 
-	// CheckBox
+	 // Verify if a button is visible
+    public static boolean verifyButtonVisible(WebDriver driver, By locator) {
+        return verifyElementVisible(driver, locator);
+    }
 
-	public static boolean verifyCheckboxChecked(WebDriver driver, By locator) {
-		bStatus = verifyElementVisible(driver, locator);
-		if (!bStatus) {
-			System.out.println("Check box has not be checked because " + Messages.errorMsg);
-			return false;
-		}
+    // Verify if a text field is visible
+    public static boolean verifyTextFieldVisible(WebDriver driver, By locator) {
+        return verifyElementVisible(driver, locator);
+    }
 
-		bStatus = driver.findElement(locator).isSelected();
+    // Verify if a dropdown is visible
+    public static boolean verifyDropdownVisible(WebDriver driver, By locator) {
+        return verifyElementVisible(driver, locator);
+    }
 
-		if (bStatus) {
-			try {
+    // Verify if a checkbox is visible
+    public static boolean verifyCheckboxVisible(WebDriver driver, By locator) {
+        return verifyElementVisible(driver, locator);
+    }
 
-				return true;
+    // Verify if an image is visible
+    public static boolean verifyImageVisible(WebDriver driver, By locator) {
+        return verifyElementVisible(driver, locator);
+    }
 
-			} catch (Exception e) {
+    // Verify if a toggle button is visible
+    public static boolean verifyToggleButtonVisible(WebDriver driver, By locator) {
+        return verifyElementVisible(driver, locator);
+    }
 
-				System.out.println(locator + " is not checked");
-				return false;
+    // Verify if a table is visible
+    public static boolean verifyTableVisible(WebDriver driver, By locator) {
+        return verifyElementVisible(driver, locator);
+    }
 
-			}
-		}
+    // Verify if a window with a specific title is present
+    public static boolean verifyWindowPresent(WebDriver driver, String windowTitle) {
+        try {
+        	
+            return driver.getTitle().contains(windowTitle);
+        } catch (Exception e) {
+            System.err.println("Window with title " + windowTitle + " is not present: " + e.getMessage());
+        }
+        return false;
+    }
 
-		return false;
+    // Verify if an alert is present
+    public static boolean verifyAlertPresent(WebDriver driver) {
+        try {
+           Alert alert = driver.switchTo().alert();
+            return alert != null;
+        } catch (NoAlertPresentException e) {
+            System.err.println("Alert is not present: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("An unexpected error occurred: " + e.getMessage());
+        }
+        return false;
+    }
 
-	}
-	
-	//Toggle button enable or disabled
-	
-	public static boolean isEnabled(WebDriver driver,By locator) {
-		
-		bStatus=verifyElementVisible(driver, locator);
-		if(!bStatus)
-		{
-			Messages.errorMsg = locator+" is not visiable";
-			return false;
-		}
-		
-		bStatus = driver.findElement(locator).isEnabled();
-		if(bStatus)
-		{
-			return true;
-		}
-		Messages.errorMsg = "Element is not enabled";
-		return false;
-	}
-	
-	
-	//Dropdowns
-	
-	public static Boolean  verifyElementPresent(WebDriver driver , By locator , String sText) {
-		
-		
-		Select select = new Select(Elements.getWebElement(driver, locator));
-		List<WebElement> list = select.getOptions();
-		
-		for (WebElement webElement : list) {
-			
-			if(webElement.getText().equals(sText))
-			{
-				return true;
-			}			
-			
-		}
-		Messages.errorMsg = sText+"Is not present in "+locator;
-		System.out.println(Messages.errorMsg);
-		return false;
-	}
-	
-	
-
+    // Verify if a calendar is visible
+    public static boolean verifyCalendarVisible(WebDriver driver, By locator) {
+        return verifyElementVisible(driver, locator);
+    }
 }
+	
+	
+
+
+	// Toggle button enable or disabled
+
+	

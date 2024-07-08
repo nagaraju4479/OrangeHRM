@@ -1,149 +1,103 @@
 package genericMethods;
 
-import java.time.Duration;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-
-import org.apache.logging.log4j.core.impl.ReusableLogEventFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-
 public class Elements {
-	
+
 	private static boolean bStatus;
-	
-	public static boolean doClick(WebDriver driver,By locator)
-	{
-		bStatus = Wait.waitForElementPresence(driver, locator,Constants.maxWaitTime );
-		
-		if(bStatus) {
-			try {
-				
-				driver.findElement(locator).click();
-				return true;
-				
-			} catch (Exception e) {
-				
-				Messages.errorMsg = e.getMessage();				
-				System.out.println("Unable to click on"+locator+" due to "+Messages.errorMsg);
-								
-			}
+
+	public static boolean doClick(WebDriver driver, By locator) {
+		bStatus = Wait.waitForButtonToBeClickable(driver, locator, Constants.maxWaitTime);
+		if (bStatus) {
+			driver.findElement(locator).click();
+			return true;
+		} else {
+			System.out.println("Locator " + locator + " was not available for click");
+			return false;
 		}
-		return false;
 	}
-	
-	public static boolean doSendKeys(WebDriver driver,By locator, String inputValue,Duration waitTime)
-	{
-		bStatus = Wait.waitForElementPresence(driver, locator,waitTime);
-		try {
+
+	public static boolean jsDoClick(WebDriver driver, By locator) {
+		bStatus = Wait.waitForElementPresence(driver, locator, Constants.maxWaitTime);
+		if (bStatus) {
+
+			JavascriptExecutor executor = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].click();", getWebElement(driver, locator));
+			return true;
+		} else {
+			System.err.println("Locator " + locator + " was not available for click");
+			return false;
+		}
+	}
+
+	public static boolean doSendKeys(WebDriver driver, By locator, String inputText) {
+		bStatus = Wait.waitForElementPresence(driver, locator, Constants.maxWaitTime);
+		if (bStatus) {
+			driver.findElement(locator).sendKeys(inputText);
 			
-			if(bStatus)
-			{
-				driver.findElement(locator).sendKeys(inputValue);
-			}
+			return true;
+		} else {
+			System.err.println("Text field " + locator + " was not present.");
+			return false;
+		}
+	}
+
+	public static boolean jsSendKeys(WebDriver driver,By locator, String inputText) {
+		bStatus = Wait.waitForElementPresence(driver, locator, Constants.minWaitTime);
+		if (bStatus) {
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].value = arguments[1];", getWebElement(driver, locator),inputText);
 			return true;
 			
-		} catch (Exception e) {
-			// TODO: handle exception
+		}
+		else {
+			System.err.println("Text field " + locator + " was not present.");
+			return false;
 		}
 		
-		return false;
 	}
-	
-	public static boolean checkCheckbox(WebDriver driver, By locator)
-	{
-		bStatus = Wait.waitForCheckbox(driver, locator, Constants.maxWaitTime);
-		
-		if(bStatus)
-		{
-			try {
-				doClick(driver, locator);
-				return true;
-			} catch (Exception e) {
-				Messages.errorMsg = e.getMessage();
-				System.out.println("Unable checking the checkbox due to: "+Messages.errorMsg);
-			}
-			
-		}
-		
-		return false;
+
+	public static WebElement getWebElement(WebDriver driver, By locator) {
+		WebElement element = driver.findElement(locator);
+		return element;
+
 	}
 
 	
-	public static boolean uncheckCheckbox(WebDriver driver, By locator)
-	{
-		bStatus = checkCheckbox(driver, locator);		
-		
-		if(!bStatus)
-		{
-			try {
-				doClick(driver, locator);
-				return true;
-			} catch (Exception e) {
-				Messages.errorMsg = e.getMessage();
-				System.out.println("unchecking the checkbox due to :"+Messages.errorMsg);
-			}
-			
-		}
-		
-		return false;
-	}
-	
-	public static WebElement getWebElement(WebDriver driver, By locator)
-	{
-		bStatus = Verify.verifyElementVisible(driver, locator);
-		
-		if(bStatus)
-		{
-			WebElement element =  driver.findElement(locator);
-			return element;
-			
-		}
-		Messages.errorMsg = locator+" is not visible and not used";
-		System.out.println(Messages.errorMsg);
-		return null;
-		
-			
-	}
-	
-	public static List<WebElement> getWebElements(WebDriver driver , By locator) {
-		
-		bStatus = Verify.verifyElementVisible(driver, locator);
-		if(bStatus)
-		{
-			List<WebElement>  listElements= driver.findElements(locator);
-			return listElements;
-		}
-		Messages.errorMsg = locator+" is not visible and not used";
-		System.out.println(Messages.errorMsg);	
-		
-		return null;
-		
-	}
-	
-	public static Boolean selectDropdownByVisibleText(WebDriver driver, By locator , String sText)
-	{
-		bStatus = Wait.waitForElementPresent(driver, locator);
-		if(bStatus)
-		{
-		try {
-			
-			Select dropdown = new Select(Elements.getWebElement(driver, locator));
-			dropdown.selectByVisibleText(sText);
+
+	public static boolean turnOnToggle(WebDriver driver, By locator) {
+		Wait.waitForToggleButtonPresence(driver, locator, Constants.maxWaitTime);
+		bStatus = driver.findElement(locator).isEnabled();
+		if (!bStatus) {
+			doClick(driver, locator);
 			return true;
-			
-		} catch (Exception e) {
-			Messages.errorMsg = "Exception occured while selecting the text :"+e.getMessage();
-			System.out.println(Messages.errorMsg);
+		} else {
+			return false;
 		}
-		
+
+	}
+
+	public static boolean turnOffToggle(WebDriver driver, By locator) {
+		Wait.waitForToggleButtonPresence(driver, locator, Constants.maxWaitTime);
+		bStatus = driver.findElement(locator).isEnabled();
+		if (bStatus) {
+			doClick(driver, locator);
+			return true;
+		} else {
+			return false;
 		}
-		return false;
-		
-		
+
 	}
 	
+	public static String getText(WebDriver driver , By locator)
+	{
+		Wait.waitForToggleButtonPresence(driver, locator, Constants.maxWaitTime);
+	 return	driver.findElement(locator).getText();
+		
+	}
+
 }
