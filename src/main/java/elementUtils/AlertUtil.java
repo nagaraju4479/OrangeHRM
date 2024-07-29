@@ -1,9 +1,9 @@
-package genericMethods;
+package elementUtils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Alert {
+public class AlertUtil {
 
 	private static boolean bStatus;
 

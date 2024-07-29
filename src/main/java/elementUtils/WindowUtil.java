@@ -1,11 +1,11 @@
-package genericMethods;
+package elementUtils;
 
 import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Window {
+public class WindowUtil {
 
 	private static Boolean bStatus;
 

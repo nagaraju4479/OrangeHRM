@@ -1,10 +1,16 @@
 package pages;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-import genericMethods.CalendarUtil;
-import genericMethods.Elements;
+import elementUtils.AlertUtil;
+import elementUtils.CalendarUtil;
+import elementUtils.Elements;
+import elementUtils.ScreenShotUtils;
 
 public class LoginPage extends BasePage {
 
@@ -31,37 +37,23 @@ public class LoginPage extends BasePage {
 	By calendarHeader = By.className("ui-datepicker-title");
 	public By searchField = By.xpath("//input[@id=\"firstName\"]");
 	By nextBtn = By.xpath("//a[@title=\"Next\"]");
+	
+	
+	By tableHeaderBy = By.className("ds-table-sm");
+	
+	//By calendarDay =  By.xpath("//a[text()="+CalendarUtil.getCurrentDay()+"]");
+	//By futureDay =  By.xpath("//a[text()="+CalendarUtil.getFutureDay()+"]");
 	// Methods
 	public HomePage login(String userName, String password) {
 		Elements.doSendKeys(driver, userNameFld, userName);
 		Elements.doSendKeys(driver, passwordFld, password);
-		Elements.doClick(driver, loginBtn);
-		
-		
+		Elements.doClick(driver, loginBtn);		
 		return new HomePage(driver);
 
 	}
 	
-	public void clickOnTechNews()
-	{
-		//Elements.jsDoClick(driver, gmailLink);
-		Elements.doClick(driver, gmailLink);
-	}
 	
-	public void searchItem()
-	{
-		Elements.jsSendKeys(driver, searchField, "Selenium Automation");
-		//Elements.doSendKeys(driver, searchField, "Selenium");
-	}
-
-	public void selectCurrentDate()
-	{
-		By calendarDay =  By.xpath("//a[text()="+CalendarUtil.getCurrentDay()+"]");
-		By futureDay =  By.xpath("//a[text()="+CalendarUtil.getFutureDay()+"]");
-		CalendarUtil.selectCurrentDate(driver, firstDateField, calendarDay);
-		CalendarUtil.selectFutureDate(driver, seconDateFiled, calendarHeader, nextBtn, futureDay);
 	
-	}
-	                                                                                 
+	                                                                                
 
 }

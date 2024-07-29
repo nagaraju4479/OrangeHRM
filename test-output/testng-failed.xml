@@ -5,8 +5,8 @@
     <classes>
       <class name="test.LoginTest">
         <methods>
-          <include name="checkBoxTest"/>
           <include name="quitDriver"/>
+          <include name="loginTest123"/>
           <include name="extentReportSetup"/>
           <include name="startDriver"/>
           <include name="flushExtendReports"/>

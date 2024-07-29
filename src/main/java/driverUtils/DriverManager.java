@@ -1,4 +1,4 @@
-package driverFactory;
+package driverUtils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,9 +7,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverManager {
+	
+	
 
 	public static WebDriver initializeDriver(String browserName) {
 		WebDriver driver;
+		
+		
 
 		switch (browserName.toLowerCase()) {
 		case "chrome":

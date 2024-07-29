@@ -1,10 +1,10 @@
-package genericMethods;
+package elementUtils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Dropdown {
+public class DropdownUtil {
 	private static boolean bStatus;
 	
 	public static boolean selectDropdownValuByVisibleText(WebDriver driver, By locator, String sText) {

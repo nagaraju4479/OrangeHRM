@@ -1,4 +1,4 @@
-package genericMethods;
+package elementUtils;
 
 public class Messages {
 	

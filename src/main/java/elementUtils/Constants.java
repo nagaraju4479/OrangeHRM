@@ -1,4 +1,4 @@
-package genericMethods;
+package elementUtils;
 
 import java.time.Duration;
 import java.time.LocalDate;
