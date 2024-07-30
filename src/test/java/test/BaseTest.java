@@ -53,7 +53,7 @@ public class BaseTest {
 
 	@AfterMethod
 	public void quitDriver() {
-		driver.quit();
+	//	driver.quit();
 	}
 
 	@AfterClass
