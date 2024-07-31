@@ -2,28 +2,16 @@ package elementUtils;
 
 import java.time.Duration;
 
-import javax.swing.plaf.DimensionUIResource;
-import javax.swing.text.Document;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.ScriptKey;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.bidi.module.Script;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import freemarker.core.ReturnInstruction.Return;
-import net.bytebuddy.asm.Advice.Local;
-import pages.HomePage;
 
 public class Wait {
 
-	private static boolean bStatus;
+	
 	
 	 public static boolean waitForElementPresence(WebDriver driver, By locator, Duration timeOut) {
 	        try {
@@ -38,7 +26,7 @@ public class Wait {
 	        return false;
 	    }
 
-	    // Wait for a button to be clickable
+	    // Wait for a button to be 
 	    public static boolean waitForButtonToBeClickable(WebDriver driver, By locator, Duration timeOut) {
 	        try {
 	            WebDriverWait wait = new WebDriverWait(driver, timeOut);

@@ -1,25 +1,17 @@
 package elementUtils;
 
-import java.security.KeyStore.PrivateKeyEntry;
-import java.util.List;
-
-import org.apache.logging.log4j.core.Logger;
-import org.apache.logging.log4j.core.appender.rolling.action.IfAccumulatedFileCount;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.bidi.BiDiSessionStatus;
-import org.openqa.selenium.chrome.AddHasCasting;
-import org.openqa.selenium.support.ui.Select;
 
 public class Verify {
 
 	// Element visibility
 
-	private static boolean bStatus;
+	
 
 	public static boolean verifyElementVisible(WebDriver driver, By locator) {
 

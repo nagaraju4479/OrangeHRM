@@ -6,9 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
 public class CommonUtils {
 	
 	public static int getRandomNumber(int min, int max) {
