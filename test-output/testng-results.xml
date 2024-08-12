@@ -1,57 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-31T16:41:39 IST" name="Default suite" finished-at="2024-07-31T16:41:53 IST" duration-ms="13726">
+  <suite started-at="2024-08-12T15:14:40 IST" name="Default suite" finished-at="2024-08-12T15:14:50 IST" duration-ms="9961">
     <groups>
     </groups>
-    <test started-at="2024-07-31T16:41:39 IST" name="Default test" finished-at="2024-07-31T16:41:53 IST" duration-ms="13726">
-      <class name="test.ProductDetailsTest">
-        <test-method is-config="true" signature="extentReportSetup()[pri:0, instance:test.ProductDetailsTest@3754a4bf]" started-at="2024-07-31T16:41:39 IST" name="extentReportSetup" finished-at="2024-07-31T16:41:39 IST" duration-ms="16" status="PASS">
+    <test started-at="2024-08-12T15:14:40 IST" name="Default test" finished-at="2024-08-12T15:14:50 IST" duration-ms="9961">
+      <class name="test.CartPageTest">
+        <test-method is-config="true" signature="extentReportSetup()[pri:0, instance:test.CartPageTest@6a78afa0]" started-at="2024-08-12T15:14:40 IST" name="extentReportSetup" finished-at="2024-08-12T15:14:40 IST" duration-ms="269" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- extentReportSetup -->
-        <test-method is-config="true" signature="startDriver(org.testng.ITestContext)[pri:0, instance:test.ProductDetailsTest@3754a4bf]" started-at="2024-07-31T16:41:39 IST" name="startDriver" finished-at="2024-07-31T16:41:51 IST" duration-ms="11238" status="PASS">
+        <test-method is-config="true" signature="startDriver(org.testng.ITestContext)[pri:0, instance:test.CartPageTest@6a78afa0]" started-at="2024-08-12T15:14:40 IST" name="startDriver" finished-at="2024-08-12T15:14:47 IST" duration-ms="7236" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@5da7cee2]]>
-=======
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
-  <reporter-output>
-  </reporter-output>
-  <suite started-at="2024-07-30T10:13:03 IST" name="Default suite" finished-at="2024-07-30T10:13:18 IST" duration-ms="15924">
-    <groups>
-    </groups>
-    <test started-at="2024-07-30T10:13:03 IST" name="Default test" finished-at="2024-07-30T10:13:18 IST" duration-ms="15924">
-      <class name="test.RegisterTest">
-        <test-method is-config="true" signature="extentReportSetup()[pri:0, instance:test.RegisterTest@217ed35e]" started-at="2024-07-30T10:13:03 IST" name="extentReportSetup" finished-at="2024-07-30T10:13:03 IST" duration-ms="20" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- extentReportSetup -->
-        <test-method is-config="true" signature="startDriver(org.testng.ITestContext)[pri:0, instance:test.RegisterTest@217ed35e]" started-at="2024-07-30T10:13:03 IST" name="startDriver" finished-at="2024-07-30T10:13:16 IST" duration-ms="12598" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@36f1046f]]>
->>>>>>> d655778bfa7fe64dfbfae55e5de692c32c1ea49a
+                <![CDATA[org.testng.TestRunner@280d9edc]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startDriver -->
-<<<<<<< HEAD
-        <test-method signature="addProductSauceLabsBackPack()[pri:0, instance:test.ProductDetailsTest@3754a4bf]" started-at="2024-07-31T16:41:51 IST" name="addProductSauceLabsBackPack" finished-at="2024-07-31T16:41:51 IST" duration-ms="115" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        <test-method signature="removeItemFromCart()[pri:0, instance:test.CartPageTest@6a78afa0]" started-at="2024-08-12T15:14:47 IST" name="removeItemFromCart" finished-at="2024-08-12T15:14:49 IST" duration-ms="1893" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Cannot invoke "java.util.Properties.getProperty(String)" because "this.properties" is null]]>
+              <![CDATA[expected [2] but found [3]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "java.util.Properties.getProperty(String)" because "this.properties" is null
-at test.LoginTest.loginTest(LoginTest.java:29)
-at test.ProductDetailsTest.addProductSauceLabsBackPack(ProductDetailsTest.java:20)
+              <![CDATA[java.lang.AssertionError: expected [2] but found [3]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at org.testng.Assert.assertEquals(Assert.java:1429)
+at test.CartPageTest.removeItemFromCart(CartPageTest.java:26)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -62,7 +47,7 @@ at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInv
 at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
 at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 at org.testng.TestRunner.privateRun(TestRunner.java:739)
 at org.testng.TestRunner.run(TestRunner.java:614)
 at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
@@ -80,34 +65,19 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addProductSauceLabsBackPack -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:test.ProductDetailsTest@3754a4bf]" started-at="2024-07-31T16:41:51 IST" name="quitDriver" finished-at="2024-07-31T16:41:52 IST" duration-ms="782" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quitDriver -->
-        <test-method is-config="true" signature="flushExtendReports()[pri:0, instance:test.ProductDetailsTest@3754a4bf]" started-at="2024-07-31T16:41:52 IST" name="flushExtendReports" finished-at="2024-07-31T16:41:53 IST" duration-ms="648" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushExtendReports -->
-      </class> <!-- test.ProductDetailsTest -->
-=======
-        <test-method signature="loginTest()[pri:0, instance:test.RegisterTest@217ed35e]" started-at="2024-07-30T10:13:16 IST" name="loginTest" finished-at="2024-07-30T10:13:18 IST" duration-ms="1985" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="quitDriver()[pri:0, instance:test.RegisterTest@217ed35e]" started-at="2024-07-30T10:13:18 IST" name="quitDriver" finished-at="2024-07-30T10:13:18 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- removeItemFromCart -->
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:test.CartPageTest@6a78afa0]" started-at="2024-08-12T15:14:49 IST" name="quitDriver" finished-at="2024-08-12T15:14:49 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method is-config="true" signature="flushExtendReports()[pri:0, instance:test.RegisterTest@217ed35e]" started-at="2024-07-30T10:13:18 IST" name="flushExtendReports" finished-at="2024-07-30T10:13:18 IST" duration-ms="888" status="PASS">
+        <test-method is-config="true" signature="flushExtendReports()[pri:0, instance:test.CartPageTest@6a78afa0]" started-at="2024-08-12T15:14:49 IST" name="flushExtendReports" finished-at="2024-08-12T15:14:50 IST" duration-ms="520" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushExtendReports -->
-      </class> <!-- test.RegisterTest -->
->>>>>>> d655778bfa7fe64dfbfae55e5de692c32c1ea49a
+      </class> <!-- test.CartPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

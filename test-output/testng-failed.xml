@@ -3,24 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
-      <class name="test.ProductDetailsTest">
-=======
-      <class name="test.RegisterTest">
->>>>>>> d655778bfa7fe64dfbfae55e5de692c32c1ea49a
+      <class name="test.CartPageTest">
         <methods>
+          <include name="removeItemFromCart"/>
           <include name="quitDriver"/>
           <include name="extentReportSetup"/>
-          <include name="addProductSauceLabsBackPack"/>
           <include name="startDriver"/>
           <include name="flushExtendReports"/>
-          <include name="billPay"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- test.ProductDetailsTest -->
-=======
-      </class> <!-- test.RegisterTest -->
->>>>>>> d655778bfa7fe64dfbfae55e5de692c32c1ea49a
+      </class> <!-- test.CartPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
