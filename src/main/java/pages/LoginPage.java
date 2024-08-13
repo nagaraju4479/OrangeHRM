@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import elementUtils.Elements;
 
@@ -14,7 +16,7 @@ public class LoginPage extends BasePage {
 	}
 	// Locators
 //	@FindBy(name="username") private WebElement userNameFld;
-//	@FindBy(name="password") private WebElement passwordFld;
+	//@FindBy(name="password") private WebElement passwordFld;
 //	@FindBy(xpath = "//button[@type='submit']") private WebElement submitBtn;
 
 	By userNameFld = By.id("user-name");

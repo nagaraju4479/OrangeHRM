@@ -27,6 +27,10 @@ public class CartPage extends BasePage{
 		return Elements.getText(driver, cartIconButton);
 	}
 	
+	public String getYourCartText() {
+		return Elements.getText(driver, yourCartText);
+	}
+	
 	public int countOfItemsInCart()
 	{
 		 List<WebElement> elementsInCart =  driver.findElements(itemsInCart);
@@ -38,9 +42,5 @@ public class CartPage extends BasePage{
 		Elements.doClick(driver, backPackRemoveBtn);
 	}
 	
-	public void afterRemoveCountOfItemsINCart() {
-		List<WebElement> elementsInCart =  driver.findElements(itemsInCart);
-		 int expectedItemCountInCart =  elementsInCart.size();
-		 System.out.println("Count is: "+expectedItemCountInCart);
-	}
+	
 }

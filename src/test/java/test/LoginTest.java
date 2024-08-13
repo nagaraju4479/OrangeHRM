@@ -5,7 +5,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Reports.ExtentReportUtils;
-
 import pages.LoginPage;
 import pages.ProductPage;
 

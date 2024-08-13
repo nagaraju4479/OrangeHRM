@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\kumar\AppData\Local\Temp\testng-eclipse--2007753182\testng-customsuite.xml</span>
+                    <span>C:\Users\kumar\AppData\Local\Temp\testng-eclipse-1639305206\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="test.CartPageTest" class="method navigator-link" hash-for-method="removeItemFromCart">removeItemFromCart</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="test.HomePageTest" class="method navigator-link" hash-for-method="removeRow">removeRow</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -121,23 +121,17 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">test.CartPageTest</span>
+              <span class="class-name">test.HomePageTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="removeItemFromCart">
-                  </a> <!-- removeItemFromCart -->
-                  <span class="method-name">removeItemFromCart</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [2] but found [3]
+                  <a name="removeRow">
+                  </a> <!-- removeRow -->
+                  <span class="method-name">removeRow</span>
+                  <div class="stack-trace">java.lang.AssertionError:  did not match: 1
 	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:1419)
-	at org.testng.Assert.assertEquals(Assert.java:1383)
-	at org.testng.Assert.assertEquals(Assert.java:1429)
-	at test.CartPageTest.removeItemFromCart(CartPageTest.java:26)
+	at test.HomePageTest.removeRow(HomePageTest.java:55)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -173,7 +167,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\kumar\AppData\Local\Temp\testng-eclipse--2007753182\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\kumar\AppData\Local\Temp\testng-eclipse-1639305206\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -182,7 +176,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;test.CartPageTest&quot;/&gt;
+      &lt;class name=&quot;test.HomePageTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;removeRow&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- test.HomePageTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -224,14 +222,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'removeItemFromCart')
-data.setCell(0, 2, 'test.CartPageTest')
-data.setCell(0, 3, 1893);
+data.setCell(0, 1, 'removeRow')
+data.setCell(0, 2, 'test.HomePageTest')
+data.setCell(0, 3, 647);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <span class="suite-total-time">Total running time: 647 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -246,9 +244,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">test.HomePageTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">addColumn</span>
+                <br/>
+                <span class="ignored-method-name">addrow</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -257,29 +264,29 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">test.CartPageTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">test.HomePageTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">extentReportSetup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
-                <span class="method-name">startDriver(org.testng.TestRunner@280d9edc)</span>
-                <span class="method-start">283 ms</span>
+                <span class="method-name">startDriver(org.testng.TestRunner@11e33bac)</span>
+                <span class="method-start">27 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">removeItemFromCart</span>
-                <span class="method-start">7519 ms</span>
+                <span class="method-name">removeRow</span>
+                <span class="method-start">9842 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">quitDriver</span>
-                <span class="method-start">9420 ms</span>
-              </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">flushExtendReports</span>
-                <span class="method-start">9420 ms</span>
+                <span class="method-start">10807 ms</span>
               </div> <!-- configuration-class after -->
+              <div class="configuration-method after">
+                <span class="method-name">quitDriver</span>
+                <span class="method-start">10807 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

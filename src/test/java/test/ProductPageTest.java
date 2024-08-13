@@ -11,15 +11,6 @@ import pages.ProductPage;
 @Listeners(TestListener.class)
 public class ProductPageTest extends BaseTest{
 	
-	@Test
-	public void addProductToCart() {
-		LoginPage loginPage = new LoginPage(driver);
-		ProductPage productPage = new ProductPage(driver);
-		loginPage.login(properties.getProperty("userName"), properties.getProperty("password"));
-		productPage.addToCart();
-		productPage.clickCartIcon();
-	
-	}
 	@Test(enabled = false)
 	public void addProductToCart1() {
 		LoginPage loginPage = new LoginPage(driver);

@@ -26,7 +26,25 @@ public class CartPageTest extends BaseTest {
 			throw e;
 		}
 		productPage.addToCart();
+		try {
+	        Assert.assertEquals(productPage.getRemovebtnText(driver), properties.getProperty("removeButtonText"));
+	        System.out.println(productPage.getRemovebtnText(driver));
+	        ExtentReportUtils.logPass("The product is added successfully");
+	    } catch (AssertionError e) {
+	    	Assert.fail("Remove button text did not match: " + properties.getProperty("removeButtonText"));
+	        ExtentReportUtils.logFail("Unable to add product "+e.getMessage());
+	        throw e;
+	    }
 		productPage.clickCartIcon();
+		try {
+			Assert.assertEquals(cartPage.getYourCartText(),properties.getProperty("yourCartText"));
+			 ExtentReportUtils.logPass("The product is added successfully");
+		}catch (AssertionError e) {
+			Assert.fail("Your cart text did not match: " + properties.getProperty("removeButtonText"));
+	        ExtentReportUtils.logFail("Unable to add product "+e.getMessage());
+	        throw e;
+		}
+		
 		int actualItemCountinCart = cartPage.countOfItemsInCart();
 		System.out.println("Acutal count:"+ actualItemCountinCart);
 		cartPage.removeItem();
