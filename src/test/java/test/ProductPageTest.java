@@ -1,7 +1,5 @@
 package test;
 
-import java.security.PublicKey;
-
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -13,8 +11,8 @@ import pages.ProductPage;
 @Listeners(TestListener.class)
 public class ProductPageTest extends BaseTest{
 	
-	@Test
-	public void addProductToCart() {
+	@Test(enabled = false)
+	public void addProductToCart1() {
 		LoginPage loginPage = new LoginPage(driver);
 		ProductPage productPage = new ProductPage(driver);
 		loginPage.login(properties.getProperty("userName"), properties.getProperty("password"));

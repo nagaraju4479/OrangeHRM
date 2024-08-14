@@ -13,17 +13,21 @@ public class ProductPage extends BasePage {
 	}
 
 	private By productPageName = By.xpath("//span[text()='Products']");
-	private By addToCartBtn = By.id("add-to-cart-sauce-labs-backpack");
+	private By backPackAddToCartBtn = By.id("add-to-cart-sauce-labs-backpack");
 	private By removeBtn = By.id("remove-sauce-labs-backpack");
 	private By sauceLabsLink = By.id("item_4_title_link");
 	private By cartLink=By.xpath("//a[@class=\"shopping_cart_link\"] ");
+	private By bikeLightaddToCartBtn =By.id("add-to-cart-sauce-labs-bike-light");
+	private By tShirtaddToCartBtn =By.id("add-to-cart-sauce-labs-bolt-t-shirt");
 
 	public String getProductPageName(WebDriver driver) {
 		return Elements.getText(driver, productPageName);
 
 	}
 	public ProductPage addToCart() {
-		Elements.jsDoClick(driver, addToCartBtn);
+		Elements.jsDoClick(driver, backPackAddToCartBtn);
+		Elements.jsDoClick(driver, bikeLightaddToCartBtn);
+	    Elements.jsDoClick(driver, tShirtaddToCartBtn);
 		return this;
 	}
 

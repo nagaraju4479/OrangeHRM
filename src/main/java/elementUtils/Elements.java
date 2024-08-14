@@ -19,9 +19,11 @@ public class Elements {
 			return false;
 		}
 	}
+	
+	
 
 	public static boolean jsDoClick(WebDriver driver, By locator) {
-		bStatus = Wait.waitForElementPresence(driver, locator, Constants.maxWaitTime);
+		bStatus = Wait.waitForButtonToBeClickable(driver, locator, Constants.maxWaitTime);
 		if (bStatus) {
 
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
